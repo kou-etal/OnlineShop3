@@ -10,6 +10,14 @@ const echo = new Echo({
     forceTLS: true,
     withCredentials: true,
     authEndpoint: 'http://127.0.0.1:8000/broadcasting/auth',
+    auth: {
+    headers: {
+      'X-XSRF-TOKEN': document.cookie
+        .split('; ')
+        .find(row => row.startsWith('XSRF-TOKEN='))
+        ?.split('=')[1],
+    },
+},
 });
 
 export default echo;
