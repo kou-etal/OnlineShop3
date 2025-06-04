@@ -54,5 +54,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::post('/send-message', [ChatController::class, 'sendMessage']);
 Route::middleware('auth:sanctum')->post('/send-private-message', [PrivateChatController::class, 'send']);
+Route::get('/me', function () {
+    return response()->json([
+        'auth' => Auth::check(),
+        'user' => Auth::user(),
+    ]);
+});
+
 
 
