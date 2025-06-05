@@ -20,5 +20,3 @@ Broadcast::channel('chat.{user1}.{user2}', function ($user, $user1, $user2) {
 
     return true;//(int) $user->id === (int) $user1 || (int) $user->id === (int) $user2;
 });
-
-//読み取る際の認証
